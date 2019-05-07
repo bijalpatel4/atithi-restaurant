@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head  lang="en">
+	<title> Whats new</title>
+	<meta charset="utf-8">
+	<meta name=" viewport" content=" width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
+</head>
+<body>
+	<div id="assignment_5_Id" >
+		<h3>This is What's new today</h3>
+		<h3>
+		<img src="images/paneer-afghani.jpg"  width="90%" height="auto">
+	    </h3>
+	</div>
+ <div class="wrapper">
+		<header class="mainheader">
+				<div class="main_head">
+					<div>
+					  <img class="logo" src="images/logo.png" alt="Logo" class="homeimg">
+					<div>
+					<div>
+						  <p class="title"> ATITHI <p>
+						  <hr width="50%">
+						  <p class="title2">ENJOY THE INDIAN DELICACIES</p>
+					 </div>
+				 </div>
+				</header>
+	  <div class="small-menu">
+		     <nav id="mobilemenu">
+				<form>
+					<select name="URL" onchange="window.location.href=
+					this.form.URL.options[this.form.URL.selectedIndex].value">
+					<option value="index.html">Home</option>
+					<option value="about.html">About US</option>
+					<option value="new.html">What New</option>
+					<option value="support.html">Services</option>
+					<option value="faq.html">FAQ</option>
+					<option value="catalog.html">Catalog Of Product</option>
+					<option value="products.html">Product Info</option>
+					<option value="jobs.html">Employment</option>
+					<option value="order.html">Online order</option>
+					</select>
+				</form>
+			</nav>
+		</div>
+	<nav class= "headerbar">
+	   <ul>
+		<li><a href="index.html">Home</a></li> 
+		<li><a href="about.html">About Us</a></li> 
+		<li><a href="#" class="current">What New</a></li> 
+		<li><a href="support.html">Services</a></li> 
+		<li><a href="faq.html">FAQ</a></li> 
+		<li><a href="catalog.html">Catalog Of Product</a></li> 
+		<li><a href="products.html">Product Info</a></li>
+		<li><a href="jobs.html">Employment</a></li>
+		<li><a href="order.html">Online Order</a></li>
+
+	    </ul>
+
+	</nav>
+	<hr color= "black" size="10">
+
+	<div class="mainbar">
+			<h1>Latest Updates</h1>
+			<hr size="2" >
+	</div>
+	<div class="container2">
+       <div class="se1">
+
+		<dl>
+			<dt><img src="images/paneer-afghani.jpg" width="15%" height="10%" align="left"></dt>
+			<dd class="newthings">A great food always creates great memories. Add taste to your day by taking a bite
+				 of deliciously buttered Afghani Paneer, only at Atithi Restaurant.</dd>
+		</dl>
+		<p style="text-align: right" > -May 25 2018 </p>
+	     </div>
+	     <div class="se2">
+			 <dl>
+				 <dt> <img src="images/Shrikhand.jpeg" width= "15%" height="5%" align="left"></dt>
+				   <dd class="newthings">A Gujarati favorite made with hung curd. Few ingredients, great flavors! In this recipe mildly sweetened yogurt is studded with mango pieces and served with a zesty mango salad.</dd>
+			 </dl>
+			 <p style="text-align: right" > -May 25 2018 </p>
+	     </div>
+		
+	</div>
+	<div class="small-menu">
+	     <nav id="mobilemenu">
+	        <hr>
+				<form>
+				<select name="URL" onchange="window.location.href=
+				this.form.URL.options[this.form.URL.selectedIndex].value">
+				<option value="index.html">Home</option>
+				<option value="about.html">About US</option>
+				<option value="new.html">What New</option>
+				<option value="support.html">Services</option>
+				<option value="faq.html">FAQ</option>
+				<option value="catalog.html">Catalog Of Product</option>
+				<option value="products.html">Product Info</option>
+				<option value="jobs.html">Employment</option>
+				<option value="order.html">Online order</option>
+				</select>
+				</form>
+			</nav>
+	    </div>
+	<footer class= "footerbar">
+		   <ul>
+		<li><a href="index.html">Home</a></li> 
+		<li><a href="about.html">About Us</a></li> 
+		<li><a href="#" class="current">What New</a></li> 
+		<li><a href="support.html">Services</a></li> 
+		<li><a href="faq.html">FAQ</a></li>
+		<li><a href="catalog.html">Catalog Of Product</a></li> 
+		<li><a href="products.html">Product Info</a></li>
+		<li><a href="jobs.html">Employment</a></li>
+		<li><a href="order.html">Online Order</a></li>
+	    </ul>
+	</footer>
+	<script type="text/javascript">
+		
+	    var box = document.getElementById("assignment_5_Id");
+	    document.body.addEventListener("click", function(event){
+	    
+	      var cx = event.clientX;     
+	      var cy = event.clientY;
+	      var px = event.pageX;     
+	      var py = event.pageY;  
+	      //document.body.innerHTML= "Client Position("+ cx +","+cy+") <br> Page Position("+ px +","+py+")";  
+	      
+	      /*console.log("cx:",cx);
+	      console.log("cy:",cy);
+	      console.log("px",px);
+	      console.log("py",py);*/
+
+          box.style.left = px+"px";
+	      box.style.top = py +"px";
+	     
+	    }); 
+
+	</script>
+	<b style="background-color: black;color: white;text-align:center">&copy; 2018 Atithi Restaurant </b>
+	</div>
+</body>
+</html>

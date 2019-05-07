@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Products</title>
+	<meta charset="utf-8">
+	<meta name=" viewport" content=" width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
+      	<script type="text/javascript">
+
+	function Product(image, description){
+		this.image = image;
+		this.description = description;
+		this.show = show;
+	}
+
+	function show(){
+		console.log(this.image);
+		document.write("<div><img class ='photo' src=",this.image,">");	
+		document.write("<h1>"+ this.description+ "</h1></div>");
+	}
+	function function1(){
+		var function1 = new Product("images/vadapav.jpeg","A pillowy pav, stuffed with a golden-fried spiced batata (potato) vada, covered with a lick of tamarind and coriander chutneys and a sprinkling of garlicky masala - the vada pav is starch heaven, an instant energy booster.");
+		function1.show();
+       
+	}
+	function function2(){
+		var function2 = new Product("images/samosa.jpg","The samosa is made with all-purpose flour locally known as maida shell stuffed with some filling, generally a mixture of mashed boiled potato, onions, green peas, lentils, spices and green chili, or fruits. The entire pastry is then deep-fried in vegetable oil or rarely ghee to a golden brown color.");
+		function2.show();
+       
+	}
+	function function3(){
+		var function3 = new Product("images/panipuri.jpg","Panipuri is a common street snack in the Indian subcontinent. It consists of a round, hollow puri, fried crisp and filled with a mixture of flavored water (commonly known as imli pani), tamarind chutney, chili, chaat masala, potato, onion or chickpeas.");
+		function3.show();
+       
+	}
+  function selectProduct(){
+	var firstName = prompt("Enter your first name ");
+	var lastName = prompt("Enter your last name");
+	alert("Welcome "+firstName +" "+ lastName+" to my website");
+
+	var selecteditem = prompt("Write any item 1,2,3");
+	if (selecteditem == "1") {
+		function1();
+	}
+	else if(selecteditem == "2"){
+		function2();
+	}
+	else if (selecteditem =="3") {
+		function3();
+	}
+	else{
+		document.write("No item found!");
+	}
+}
+
+    </script>
+</head>
+<body>
+	<div class="wrapper">
+			<header class="mainheader">
+					<div class="main_head">
+						<div>
+						  <img class="logo" src="images/logo.png" alt="Logo" class="homeimg">
+						<div>
+						<div>
+							  <p class="title"> ATITHI <p>
+							  <hr width="50%">
+							  <p class="title2">ENJOY THE INDIAN DELICACIES</p>
+						 </div>
+					 </div>
+					</header>
+	    <div class="small-menu">
+	     <nav id="mobilemenu">
+				<form>
+				<select name="URL" onchange="window.location.href=
+				this.form.URL.options[this.form.URL.selectedIndex].value">
+				<option value="index.html">Home</option>
+				<option value="about.html">About US</option>
+				<option value="new.html">What New</option>
+				<option value="support.html">Services</option>
+				<option value="faq.html">FAQ</option>
+				<option value="catalog.html">Catalog Of Product</option>
+				<option value="products.html">Product Info</option>
+				<option value="jobs.html">Employment</option>
+				<option value="order.html">Online order</option>
+			
+				</select>
+				</form>
+			</nav>
+	    </div>
+		<nav class= "headerbar">
+		   <ul>
+				<li><a href="index.html">Home</a></li> 
+				<li><a href="about.html">About Us</a></li>
+				<li><a href="new.html">What New</a></li> 
+				<li><a href="support.html">Services</a></li> 
+				<li><a href="faq.html">FAQ</a></li> 
+				<li><a href="catalog.html">Catalog Of Product</a></li> 
+				<li><a href="#" class= "current">Product Info</a></li>
+				<li><a href="jobs.html">Employment</a></li> 
+				<li><a href="order.html">Online Order</a></li>
+				
+				</ul>
+			</nav>
+			<hr color= "black" size="10">
+	    <div class="container2">
+	        <div class="mtable"> 
+		     <script type="text/javascript">
+		     	selectProduct();
+		     </script>
+            </div>
+	    </div>
+	    
+        <div class="small-menu">
+	     <nav id="mobilemenu">
+	        <hr>
+				<form>
+				<select name="URL" onchange="window.location.href=
+				this.form.URL.options[this.form.URL.selectedIndex].value">
+				<option value="index.html">Home</option>
+				<option value="about.html">About US</option>
+				<option value="new.html">What New</option>
+				<option value="support.html">Services</option>
+				<option value="faq.html">FAQ</option>
+				<option value="catalog.html">Catalog Of Product</option>
+				<option value="products.html">Product Info</option>
+				<option value="jobs.html">Employment</option>
+				<option value="order.html">Online order</option>
+				</select>
+				</form>
+			</nav>
+	    </div>
+		<footer class = "footerbar">
+		<hr>
+		  <ul>
+				<li><a href="index.html">Home</a></li> 
+				<li><a href="about.html">About Us</a></li>
+				<li><a href="new.html">What New</a></li> 
+				<li><a href="support.html">Services</a></li> 
+				<li><a href="faq.html">FAQ</a></li> 
+				<li><a href="catalog.html">Catalog Of Product</a></li> 
+				<li><a href="#" class= "current">Product Info</a></li> 
+				<li><a href="jobs.html">Employment</a></li>
+				<li><a href="order.html">Online Order</a></li>
+				</ul>
+		 </footer>
+		 <b style="background-color: black;color: white;text-align:center">&copy; 2018 Atithi Restaurant </b>
+ </div>
+</body>
+</html>

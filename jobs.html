@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Jobs</title>
+	<meta name=" viewport" content=" width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
+	<script type="text/javascript">
+			var urlCashier = "cashier.html";
+			var urlServer = "server.html";
+
+			function OpenCashierWindow(url) {
+				cashierWin = window.open(url,null,"height=500,width=600,scrollbars,resizable");
+				cashierWin.focus();
+	         }
+
+	        function OpenServerWindow(url) {
+				serverWin = window.open(url,null,"height=500,width=600,scrollbars,resizable");
+				serverWin.focus();
+	        }
+    </script>
+</head>
+<body>
+   <div class="wrapper">
+		<header class="mainheader">
+				<div class="main_head">
+					<div>
+					  <img class="logo" src="images/logo.png" alt="Logo" class="homeimg">
+					<div>
+					<div>
+						  <p class="title"> ATITHI <p>
+						  <hr width="50%">
+						  <p class="title2">ENJOY THE INDIAN DELICACIES</p>
+					 </div>
+				 </div>
+				</header>
+        <div class="small-menu">
+	     <nav id="mobilemenu">
+				<form>
+				<select name="URL" onchange="window.location.href=
+				this.form.URL.options[this.form.URL.selectedIndex].value">
+				<option value="index.html">Home</option>
+				<option value="about.html">About US</option>
+				<option value="contact.html">Contact</option>
+				<option value="new.html">What New</option>
+				<option value="support.html">Services</option>
+				<option value="faq.html">FAQ</option>
+				<option value="products.html">Product</option>
+				<option value="jobs.html">Employment</option>
+				<option value="order.html">Online order</option>
+				</select>
+				</form>
+			</nav>
+	    </div>
+	    <nav class= "headerbar">
+			      <ul>
+				    <li><a href="index.html">Home</a></li> 
+					<li><a href="about.html" >About Us</a></li> 
+					<li><a href="contact.html">Contact</a></li> 
+					<li><a href="new.html">What New</a></li> 
+					<li><a href="support.html">Services</a></li> 
+					<li><a href="faq.html">FAQ</a></li> 
+					<li><a href="products.html">Product</a></li> 
+		            <li><a href="#" class="current">Employment</a></li>
+		            <li><a href="order.html">Online Order</a></li>
+					</ul>
+			</nav>
+	        <hr color= "black" size="10">
+
+	        <div class="container2">
+		    <section class="mainbar">
+		    <div id="header">
+				<h1> Jobs avaible in my restaurant </h1>
+				<hr size="2">
+			</div>
+
+			<article class="col7">
+				<a href="javascript:OpenCashierWindow('cashier.html')" > CLICK HERE TO ACCESS TO THE CASHIER WINDOW</a><br><br>
+				<a href="javascript:OpenServerWindow('server.html')"> CLICK HERE TO ACCESS TO THE RESTAURANT SERVER WINDOW </a><br><br>
+			</article>
+		</section>
+		</div>
+    <div class="small-menu">
+	     <nav id="mobilemenu">
+	        <hr>
+				<form>
+				<select name="URL" onchange="window.location.href=
+				this.form.URL.options[this.form.URL.selectedIndex].value">
+				<option value="index.html">Home</option>
+				<option value="about.html">About US</option>
+				<option value="contact.html">Contact</option>
+				<option value="new.html">What New</option>
+				<option value="support.html">Services</option>
+				<option value="faq.html">FAQ</option>
+				<option value="products.html">Product</option>
+				<option value="jobs.html">Employment</option>
+				<option value="order.html">Online order</option>
+				</select>
+				</form>
+			</nav>
+	    </div>
+		<footer class = "footerbar">
+		<ul>
+		    <li><a href="index.html">Home</a></li> 
+			<li><a href="about.html">About Us</a></li> 
+			<li><a href="contact.html">Contact</a></li> 
+			<li><a href="new.html">What New</a></li> 
+			<li><a href="support.html">Services</a></li> 
+			<li><a href="faq.html">FAQ</a></li> 
+			<li><a href="products.html">Product</a></li> 
+	        <li><a href="#" class="current">Employment</a></li>
+	        <li><a href="order.html">Online Order</a></li>
+			</ul>	
+	</footer>
+	<b style="background-color: black;color: white;text-align:center">&copy; 2018 Atithi Restaurant </b>
+  </div>
+</body>
+</html>

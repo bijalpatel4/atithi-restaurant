@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Atithi</title>
+	<meta charset="utf-8">
+	<meta name=" viewport" content=" width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
+</head>
+<script type="text/javascript">
+            
+			function isValid(form) {
+            var first = form.first;
+            var last = form.last;
+            var address = form.address;
+            var city = form.city;
+            var state = form.state;
+            var zip = form.zip;
+            var phone = form.phone;
+            var email = form.email;
+            var ccnum = form.ccnum;
+            var cctype = form.cctype;
+            var ccexpire = form.ccexpire;
+            var comment = form.comment;
+
+           
+            if (!first.value.trim() ||first.value.length == 0) {
+				var message = first.name + " is Empty";
+			    alert(message);
+			    first.focus();
+			    first.select();
+			    return false;
+			}
+			if (!last.value.trim() || last.value.length == 0) {
+				var message = last.name + " is Empty";
+			    alert(message);
+			    last.focus();
+			   last.select();
+			    return false;
+			}
+
+			if (!address.value.trim() ||address.value.length == 0) {
+				var message = address.name + " is Empty";
+			    alert(message);
+			    address.focus();
+			    address.select();
+			    return false;
+			}
+			 if (!city.value.trim() || city.value.length == 0) {
+				var message = city.name + " is Empty";
+			    alert(message);
+			    city.focus();
+			    city.select();
+			    return false;
+			}
+		    if (!state.value.trim() || state.value.length == 0) {
+				var message = state.name + " is Empty";
+			    alert(message);
+			    state.focus();
+			    state.select();
+			    return false;
+			}
+			 if (!form.zip.value.trim() ||  form.zip.value.length == 0) {
+				var message = form.zip.name + " is Empty";
+			    alert(message);
+			    form.zip.focus();
+			     form.zip.select();
+			    return false;
+			}
+		    if(!validPattern(form.zip,/^[0-9]{5}(?:([0-9]{4}))?$/)){
+		    	var message = form.zip.name + " not Valid";
+			    alert(message);
+			    form.zip.focus();
+			    form.zip.select();
+			    return false;
+		    }
+
+
+		    if (!form.phone.value.trim() ||  form.phone.value.length == 0) {
+				var message = form.phone.name + " is Empty";
+			    alert(message);
+			    form.phone.focus();
+			     form.phone.select();
+			    return false;
+			}
+		    if(!validPattern(form.phone,/((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}/)){
+		    	var message = form.phone.name + " not Valid";
+			    alert(message);
+			    form.phone.focus();
+			    form.phone.select();
+			    return false;
+		    }
+		    if (!form.email.value.trim() ||  form.email.value.length == 0) {
+				var message = form.email.name + " is Empty";
+			    alert(message);
+			    form.email.focus();
+			    form.email.select();
+			    return false;
+			}
+    
+		    if (!form.ccnum.value.trim() ||  form.ccnum.value.length == 0) {
+				var message = form.ccnum.name + " is Empty";
+			    alert(message);
+			    form.ccnum.focus();
+			    form.ccnum.select();
+			    return false;
+			}
+			if(!validPattern(form.ccnum,/^\d{16}$/)){
+		    	var message = form.ccnum.name + " not Valid";
+			    alert(message);
+			    form.ccnum.focus();
+			    form.ccnum.select();
+			    return false;
+		    }
+		    if (!form.cctype.value.trim() ||  form.cctype.value.length == 0) {
+				var message = form.cctype.name + " is Empty";
+			    alert(message);
+			    form.cctype.focus();
+			    form.cctype.select();
+			    return false;
+			}
+            if (!form.ccexpire.value.trim() || form.ccexpire.value.length == 0) {
+		    	console.log(form.ccexpire);
+				var message = form.ccexpire.name + " is Empty";
+			    alert(message);
+			    form.ccexpire.focus();
+			    form.ccexpire.select();
+			    return false;
+			}
+		    if(!isValidCCExpire(form.ccexpire,/^(0[1-9]|1[0-2])\/([0-9]{4})$/)){
+		    	console.log()
+		    	var message =  form.ccexpire.name + " not Valid";
+			    alert(message);
+			    form.ccexpire.focus();
+			    form.ccexpire.select();
+			    return false;
+		    }
+
+            return true;
+        }
+
+        function validPattern(field,pattern){
+		    return pattern.test(field.value.trim());
+		}
+
+		function isValidCCExpire(field,pattern) {
+   
+		    if (pattern.test(field.value.trim())) {
+		        var expire = field.value.trim().split("/");
+		        var expireMM = parseInt(expire[0], 10);
+		        var expireYYYY = parseInt(expire[1], 10);
+		        var today = new Date();
+		        var todayMM = today.getMonth() + 1;
+		        var todayYYYY = today.getFullYear();
+		        if (expireYYYY > todayYYYY) {
+		            return true;
+		        } else if (expireYYYY == todayYYYY) {
+		            if (expireMM >= todayMM) {
+		                return true;
+		            }
+		            return false;
+		        } else {
+		            return false;
+		        }
+		    }
+		    return false;
+		}
+
+
+  //       function validateForm(form){
+
+		// // 	 if (!validateEmptyField(address, 'Street Address')) {
+		// // 		return false;
+		// // 	}
+
+		// // 	if (!validateEmptyField(city, 'city')) {
+		// // 		return false;
+		// // 	}
+
+		// // 	if (!validateEmptyField(state, 'State')) {
+		// // 		return false;
+		// // 	}
+
+		// // 	if (!validateEmptyField(zip, 'Zip Code')) {
+		// // 		return false;
+		// // 	}
+
+		// // 	if (!isValidFieldPattern(zip, /^[0-9]{5}(?:([0-9]{4}))?$/, 'Please enter valid 5 or 9 digit zip code.')) {
+		// // 		return false;
+		// // 	}
+
+		// // 	if (!validateEmptyField(phone, 'Phone Number')) {
+		// // 		return false;
+		// // 	}
+
+		// // 	if (!isValidFieldPattern(phone, /^\([0-9]{3}\)[0-9]{3}[-]{1}[0-9]{4}$/, 'Please enter valid phone number.')) {
+		// // 		return false;
+		// // 	}
+
+		// // 	if (!validateEmptyField(ccnum, 'Creadit Card')) {
+		// // 		return false;
+		// // 	}
+
+		// // 	if (!isValidFieldPattern(phone, /^\d{16}$/, 'Please enter valid 16 digit credit card number.')) {
+		// // 		return false;
+		// // 	}
+
+		// // 	if (!validateEmptyField(ccexpire, 'Credit card expiry date')) {
+		// // 		return false;
+		// // 	}
+
+		// // 	if (!isValidCCExpire(ccexpire)) {
+		// // 		alert("Please enter valid credit card expiry date.");
+		// //         ccexpire.focus();
+		// //         ccexpire.select();
+		// //         return false;
+		// // 	}	
+
+		// // function isValidFieldPattern(field, pattern, alertMessage) {
+		// //      console.log("validatepattern");
+		// //     if (!pattern.test(field.value.trim())) {
+		// //     	alert(alertMessage);
+		// //         field.focus();
+		// //         field.select();
+		// //         return false;
+		// //     }
+			
+		// // }
+		// return true;
+		// }
+        
+
+		// function validateEmptyField(field, fieldName) {
+		// 	console.log("validateempty");
+		// 	if (!field.value.trim() || field.value.length == 0) {
+		// 		var message = fieldName + " is Empty";
+		// 	    alert(message);
+		// 	    field.focus();
+		// 	    field.select();
+		// 	    return false;
+		//     }
+		// }
+
+/*------------------Calculate Product table  ------------*/
+
+		var quantPaniPuri = document.getElementById('quantPaniPuri');
+		var totalPaniPuri = document.getElementById('totalPaniPuri');
+		var quantVadaPav = document.getElementById('quantVadaPav');
+		var totalVadaPav = document.getElementById('totalVadaPav');
+		var quantSamosa = document.getElementById('quantSamosa');
+		var totalSamosa = document.getElementById('totalSamosa');
+		var subtotalSnacks = document.getElementById('subtotalSnacks');
+		var quantColdDrink = document.getElementById('quantColdDrink');
+		var totalColdDrink = document.getElementById('totalColdDrink');
+		var quantTea = document.getElementById('quantTea');
+		var totalTea = document.getElementById('totalTea');
+		var quantCoffee = document.getElementById('quantCoffee');
+		var totalCoffee = document.getElementById('totalCoffee');
+		var subtotalDrinks = document.getElementById('subtotalDrinks');
+		var totalOfAllSubTotal = document.getElementById('totalOfAllSubTotal');
+
+		var totalAfterTax = document.getElementById('totalAfterTax');
+		var shippingHandling = document.getElementById('shipping&Handling');
+		var grandTotal= document.getElementById('grandTotal');
+		
+	function calculate(totalElement, subTotalCategory, totalValue) {
+
+
+		var totalOfProductElement = document.getElementById(totalElement);
+		var previousProductValue = parseInt(totalOfProductElement.value);
+
+		totalOfProductElement.value = totalValue;
+		var subTotalCategoryElement = document.getElementById(subTotalCategory);
+		subTotalCategoryElement.value = parseInt(subTotalCategoryElement.value) + totalValue - previousProductValue;
+
+		var totalOfAllSubTotal = document.getElementById('totalOfAllSubTotal');
+		totalOfAllSubTotal.value = parseInt(totalOfAllSubTotal.value) + totalValue - previousProductValue;
+
+		var tax = (parseInt(totalOfAllSubTotal.value) * 8.25) / 100;
+		var saleTax = document.getElementById('saleTax');
+		saleTax.value = tax;
+
+	    var totalAfterTaxValue = parseInt(totalOfAllSubTotal.value) + tax;
+	    document.getElementById('totalAfterTax').value = totalAfterTaxValue;
+	 	var shipping = 0;
+	    if (totalAfterTaxValue != 0) {
+			shipping = 20;
+			document.getElementById('shipping&Handling').value = 20;
+	    } else {
+	    	document.getElementById('shipping&Handling').value = 0;
+	    }
+	    document.getElementById('grandTotal').value = totalAfterTaxValue + shipping;
+	}
+			
+
+					
+	</script>
+</head>
+<body>
+<section class="wrapper">
+		<header class="mainheader">
+				<div class="main_head">
+					<div>
+					  <img class="logo" src="images/logo.png" alt="Logo" class="homeimg">
+					<div>
+					<div>
+						  <p class="title"> ATITHI <p>
+						  <hr width="50%">
+						  <p class="title2">ENJOY THE INDIAN DELICACIES</p>
+					 </div>
+				 </div>
+				</header>
+    <div class="small-menu">
+	     <nav id="mobilemenu">
+				<form>
+				<select name="URL" onchange="window.location.href=
+				this.form.URL.options[this.form.URL.selectedIndex].value">
+				<option value="index.html">Home</option>
+				<option value="about.html">About US</option>
+				<option value="contact.html">Contact</option>
+				<option value="new.html">What New</option>
+				<option value="support.html">Services</option>
+				<option value="faq.html">FAQ</option>
+				<option value="products.html">Product</option>
+				<option value="order.html">Online order</option>
+				<option value="multimedia.html">Video</option>
+				<option value="jobs.html">Jobs</option>
+				</select>
+				</form>
+			</nav>
+	    </div>
+	<nav class= "headerbar">
+		    <ul>
+			    <li><a href="index.html">Home</a></li> 
+				<li><a href="about.html">About Us</a></li> 
+				<li><a href="contact.html">Contact</a></li> 
+				<li><a href="new.html">What New</a></li> 
+				<li><a href="support.html">Services</a></li> 
+				<li><a href="faq.html">FAQ</a></li> 
+				<li><a href="products.html">Product</a></li> 
+				<li><a href="#" class="current">Online Order</a></li>
+				<li><a href="multimedia.html">Videos</a></li>
+				<li><a href="jobs.html">Jobs</a></li>
+				</ul>
+		</nav>
+		<hr color= "black" size="10" >
+	      <div class="mainbar">		
+		     <h1>Online Order</h1>
+			<hr size="2">	
+		</div>
+	<section class="container2">
+	    <div class="col4">
+			<div  class="customerinfo">
+				<header class="heading">
+					<h2>Customer Purchase</h2>
+				</header>
+				<div>     
+					 <form name="RequestForm" action="http://voyager.deanza.edu/~hso/cgi-bin/form420.cgi" method="POST" onsubmit="return isValid(this)">						
+						<div >
+							<label>First Name </label>
+								<input type="text"  name="first" maxlength="25" id="fname">
+						</div>
+						<div>	   
+							<label class="rightside">Last Name </label>
+								<input type="text" name="last" maxlength="25" class="left">
+						</div>
+						<div >        
+							<label>Street Address</label> 
+								<input type="text" name="address" maxlength="35" id="street">
+						</div>
+						<div>          
+							<label lass="rightside">City </label>    
+							<input type="text" name="city"  id="city">
+						</div>
+						<div >          
+							<label>State</label>   
+								<input type="text" name="state" maxlength="2" id="state">
+						</div>
+						<div>           
+							<label lass="rightside">Zip </label>
+								<input type="text"  name="zip" placeholder="12345" id="zip"> 
+						</div>
+						<div >
+							<label>Phone Number</label>     
+								<input type="tel"  name="phone" id="phone" placeholder="(123) 456-7890">
+						</div>
+						<div >             
+							<label lass="rightside">Email</label>   
+								<input type="email"  name="email"  id="email" maxlength="35">
+						</div>  
+						<div>
+						<label for="cardnumber">Card Number</label>
+								<input type="text"  name="ccnum" id="cardnumber"  placeholder="1234567890123456"  minlength="16" maxlength="16"> 
+						</div>
+						<div  id="expiration-date">
+							<label>Expiration Date</label>
+								<input type="text" name="ccexpire" placeholder="mm/yyyy" size= "7">
+						</div> 
+						<div id="cardtype"> 
+							<label for="cardtype">Card Type</label>       
+								<select>
+									<option name="cctype" value="Amex">Aerican Express</option>
+									<option name="cctype" value="Visa">Visa</option>
+									<option name="cctype" value="Master card">MasterCard</option>
+									<option name="cctype" value="Discover">Discover</option>
+								</select>
+						</div> 
+						<div >
+							<label>Comment </label>
+							   <textarea name="comment" id="comment" crows="6" cols="40" placeholder="Yep comment is required as well."></textarea>
+						</div> 
+						<div > 
+							<input type="submit" class="btn" name="submit"> 	
+						</div>
+					</form>
+				</div>	
+	        </div>            
+         </div>
+	</section>	
+	
+	<section class="col5">
+		<table border="3" class="ordertable">
+			<tr>
+				<th>Category</th>
+				<th>Description</th>
+				<th>Unit Price</th>
+				<th>Quantity</th>
+				<th>Total Price</th>
+			</tr>
+			<tr>
+	       		<td rowspan="3">Snacks</td>
+			    <td>Panipuri</td>
+			    <td>$10</td>
+			   <td>
+			    	<input id="quantPaniPuri" type="text" size="5" value="0"  name="quantity" onchange="calculate('totalPaniPuri','subtotalSnacks', this.value * 10)">	
+			    </td>
+			    <td >		     
+			    	<input id="totalPaniPuri" type="text" name="quantity" value="0" >			  
+			    </td>
+			</tr>
+			<tr>
+				<td>Vada Pav</td>
+				 <td>$8</td>
+				 <td>				
+			    	<input id="quantVadaPav" type="text" size="5" name="quantity" value="0"  onchange="calculate('totalVadaPav', 'subtotalSnacks', this.value * 8)">			  
+			    </td>
+			    <td>			     
+			    	<input id="totalVadaPav" type="text" name="quantity" value="0" >
+			    </td>
+			</tr>
+			<tr>
+				<td>Samosa</td>
+				 <td>$7</td>
+				 <td>				
+			    	<input id="quantSamosa" type="text" size="5" name="quantity" value="0" onchange="calculate('totalSamosa', 'subtotalSnacks', this.value* 7)">			  
+			    </td>
+			    <td>			     
+			    	<input  id="totalSamosa" type="text" name="quantity" value="0" >			   
+			    </td>
+			</tr>
+			<tr>
+				<th colspan="4">Subtotal $</th>
+				<td>			
+			    	<input id="subtotalSnacks" type="text" name="quantity" value="0" >			  
+			    </td>
+			</tr>
+			<tr>
+				<td rowspan="3">Drinks</td>
+				<td>Cold Drinks</td>
+				<td>$12</td>
+				<td>			
+			    	<input id="quantColdDrink" type="text" size="5" name="quantity" value="0" onchange="calculate('totalColdDrink', 'subtotalDrinks', this.value * 12)">
+				</td>
+			    <td>				
+			    	<input id="totalColdDrink"  value="0"  type="text" name="quantity">				
+				</td>
+			</tr>
+			<tr>
+				<td>Tea</td>
+				<td>$7</td>
+					<td>				
+			    	<input id="quantTea" type="text" size="5" name="quantity" value="0"onchange="calculate('totalTea', 'subtotalDrinks', this.value * 7)">
+				</td>
+					<td>				
+			    	<input id="totalTea" type="text" value="0"  name="quantity">
+				</td>
+			</tr>
+			<tr>
+			<td>Coffee</td>
+				<td>$8</td>
+				<td>			
+			    	<input id="quantCoffee" type="text" size="5" name="quantity" value="0" onchange="calculate('totalCoffee', 'subtotalDrinks', this.value* 8)">			    	
+				</td>
+			    <td>				
+			    	<input id="totalCoffee" type="text" name="quantity" value="0" >				
+				</td>
+			</tr>	
+			<tr>
+				<th colspan="4">Subtotal $</th>
+				<td>
+			    	<input id="subtotalDrinks" type="text" name="quantity" value="0">
+			    </td>
+			</tr>			
+			<tr>
+				<th colspan="4">Total $</th>
+				<td>				
+			    	<input id="totalOfAllSubTotal" type="text" name="quantity" value="0" >			  
+			    </td>
+			</tr>
+			<tr>
+				<th colspan="4">Sales Tax(8.25%) $</th>
+				<td>				
+			    	<input id="saleTax" type="text" name="quantity" value="0">			  
+			    </td>
+			</tr>
+			<tr>
+				<th colspan="4">Total $</th>
+				<td>				
+			    	<input id="totalAfterTax" type="text" name="quantity" value="0" >			  
+			    </td>
+			</tr>
+			<tr>
+				<th colspan="4">Shipping And Handling $</th>
+				<td>				
+			    	<input id="shipping&Handling" type="text" name="quantity" value="0" >			  
+			    </td>
+			</tr>
+			<tr>
+				<th colspan="4">Grand Total $</th>
+				<td>				
+			    	<input id="grandTotal" type="text" name="quantity" value="0" >			  
+			    </td>
+			</tr>
+			
+		</table>
+    </section>
+    </div>
+    <div class="small-menu">
+	     <nav id="mobilemenu">
+	        <hr>
+				<form>
+				<select name="URL" onchange="window.location.href=
+				this.form.URL.options[this.form.URL.selectedIndex].value">
+				<option value="index.html">Home</option>
+				<option value="about.html">About US</option>
+				<option value="contact.html">Contact</option>
+				<option value="new.html">What New</option>
+				<option value="support.html">Services</option>
+				<option value="faq.html">FAQ</option>
+				<option value="products.html">Product</option>
+				<option value="order.html">Online order</option>
+				<option value="multimedia.html">Video</option>
+				<option value="jobs.html">Jobs</option>
+				</select>
+				</form>
+			</nav>
+	    </div>
+	<footer class = "footerbar">
+		<ul>
+		    <li><a href="index.html">Home</a></li> 
+			<li><a href="#" class="current">About Us</a></li> 
+			<li><a href="contact.html">Contact</a></li> 
+			<li><a href="new.html">What New</a></li> 
+			<li><a href="support.html">Services</a></li> 
+			<li><a href="faq.html">FAQ</a></li> 
+			<li><a href="products.html">Product</a></li> 	
+			<li><a href="#" class="current">Online Order</a></li>
+			<li><a href="multimedia.html">Videos</a></li>
+			<li><a href="jobs.html">Jobs</a></li>
+			</ul>	
+	</footer>
+	<b style="background-color: black;color: white;text-align:center">&copy; 2018 Atithi Restaurant </b>
+ </div>
+</body>
+</html>
